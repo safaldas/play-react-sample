@@ -29,12 +29,12 @@ class Application @Inject()( env: Environment, controllerComponents: ControllerC
       // function so the messages are written to standard out.
       engine.eval("var console = {error: print, log: print, warn: print};")
 
-      // Evaluate React and the application code.
+      // Evaluate vue and the application code.
       engine.eval("var process = { env: { VUE_ENV: 'server', NODE_ENV: 'production' }}; this.global = { process: process };");
-      //engine.eval(new InputStreamReader(env.classLoader.getResource("public/javascripts/vue.js").openStream()))
-     // engine.eval(new InputStreamReader(env.classLoader.getResource("public/javascripts/vue-server-render-basic.js").openStream()))
+      engine.eval(new InputStreamReader(env.classLoader.getResource("public/javascripts/vue.js").openStream()))
+      engine.eval(new InputStreamReader(env.classLoader.getResource("public/javascripts/vue-server-render-basic.js").openStream()))
       // engine.eval(new InputStreamReader(env.classLoader.getResource("public/javascripts/app.js").openStream()))
- //   engine.eval(new InputStreamReader(env.classLoader.getResource("app/assets/vue/components/greeting-form.js").openStream()))
+      // engine.eval(new InputStreamReader(env.classLoader.getResource("app/assets/vue/components/greeting-form.js").openStream()))
 
 
       //Ok(views.html.index("React on Play") {
